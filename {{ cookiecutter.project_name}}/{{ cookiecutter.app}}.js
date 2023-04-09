@@ -51,14 +51,16 @@ app.get('/liveness', (req, res) => {
 // json parser middleware
 app.use(express.json());
 
+const PORT = {{ cookiecutter.app }}_config.PORT
+
 // application routes
 if ({{ cookiecutter.app }}_config.ENV === 'prod')
 {
     app.use('/api/v1', require('./routes'))
-    http_server.listen({{ cookiecutter.app }}_config.PORT);
+    http_server.listen(PORT);
 }
 else
 {
     app.use(require('./routes'))
-    http_server.listen({{ cookiecutter.app }}_config.PORT, () => { console.log(`listening on ${{{ cookiecutter.app }}_config.PORT}`) });
+    http_server.listen(PORT, () => { console.log(`listening on ${PORT}`) });
 }
