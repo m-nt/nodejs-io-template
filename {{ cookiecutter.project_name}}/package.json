@@ -11,7 +11,7 @@
   "author": "{{ cookiecutter.author }}",
   "license": "{{ cookiecutter.open_source_license }}",
   "engines": {
-    "npm": "{{ cookiecutter.nmp_version }}",
+    "npm": "{{ cookiecutter.npm_version }}",
     "node": "{{ cookiecutter.node_version }}"
   },
   "devDependencies": {
