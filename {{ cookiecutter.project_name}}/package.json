@@ -1,0 +1,27 @@
+{
+  "name": "{{ cookiecutter.project_name }}",
+  "version": "{{ cookiecutter.version }}",
+  "description": "{{ cookiecutter.project_short_description }}",
+  "main": "{{ cookiecutter.entry_points }}",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rundev": "nodemon index",
+    "runprod": "node index"
+  },
+  "author": "{{ cookiecutter.author }}",
+  "license": "{{ cookiecutter.open_source_license }}",
+  "engines": {
+    "npm": "{{ cookiecutter.nmp_version }}",
+    "node": "{{ cookiecutter.node_version }}"
+  },
+  "devDependencies": {
+    "nodemon": "^{{ cookiecutter.nodemon_version }}"
+  },
+  "dependencies": {
+    "axios": "^{{ cookiecutter.axios_version }}",
+    "cors": "^{{ cookiecutter.cors_version }}",
+    "express": "^{{ cookiecutter.express_version }}",
+    "mongoose": "^{{ cookiecutter.mongoose_version }}",
+    "socket.io": "^{{ cookiecutter.socket.io_version }}",
+  }
+}
