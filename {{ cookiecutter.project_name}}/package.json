@@ -22,6 +22,6 @@
     "cors": "^{{ cookiecutter.cors_version }}",
     "express": "^{{ cookiecutter.express_version }}",
     "mongoose": "^{{ cookiecutter.mongoose_version }}",
-    "socket.io": "^{{ cookiecutter.socket.io_version }}",
+    "socket.io": "^{{ cookiecutter.socketio_version }}",
   }
 }
