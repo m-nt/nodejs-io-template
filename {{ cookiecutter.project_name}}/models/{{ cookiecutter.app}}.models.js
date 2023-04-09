@@ -14,6 +14,6 @@ const User_schema = new Schema({
     age: String,
 })
 module.exports = {
-    { { cookiecutter.app } }: mongoose.model('{{ cookiecutter.app}}', {{ cookiecutter.app }}_schema),
+    {{ cookiecutter.app }}: mongoose.model('{{ cookiecutter.app}}', {{ cookiecutter.app }}_schema),
     User: mongoose.model('user', User_schema),
 }
