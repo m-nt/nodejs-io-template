@@ -7,5 +7,5 @@ const client = mongoose.createConnection(config.DATABASE_URL)
 client.db = config.SERVICE_NAME
 
 module.exports = {
-    '{ { cookiecutter.app } }_collection': client.collection('{{ cookiecutter.app }}')
+    {{ cookiecutter.app }}_collection: client.collection('{{ cookiecutter.app }}')
 }

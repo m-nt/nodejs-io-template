@@ -5,5 +5,5 @@ const { {{ cookiecutter.app }}_controller } = require('./{{ cookiecutter.app}}.c
 const db = require('../db')
 
 module.exports = {
-    '{ { cookiecutter.app } }_controller': new {{ cookiecutter.app }}_controller(db.{{ cookiecutter.app }}_collection)
+    {{ cookiecutter.app } }_controller: new {{ cookiecutter.app }}_controller(db.{{ cookiecutter.app }}_collection)
 }
