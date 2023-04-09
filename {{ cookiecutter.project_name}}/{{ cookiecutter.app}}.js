@@ -4,6 +4,10 @@ const express = require('express');
 const app = express();
 const http_server = require('http').createServer(app);
 
+// Loading configs from environment variables if available
+require('./utils').usefull_functions.LOAD_CONFIG()
+const { {{ cookiecutter.app }}_config, socket_config } = require('./config')
+
 // Default CORS middleware
 const cors = require('cors')
 var corsOptions = {
@@ -12,16 +16,9 @@ var corsOptions = {
 }
 app.use(cors(corsOptions))
 
-// Loading configs from environment variables if available
-require('./utils').LOAD_CONFIG()
-const { {{ cookiecutter.app }}_config, socket_config } = require('./config')
-
-
-const PORT = {{ cookiecutter.app }}_config.PORT;
-
 // IO server
 const { Server } = require('socket.io');
-const { Socket } = require('socket.io-client');
+const { Socket } = require('socket.io');
 
 
 const io = new Server(http_server, {
@@ -58,10 +55,10 @@ app.use(express.json());
 if ({{ cookiecutter.app }}_config.ENV === 'prod')
 {
     app.use('/api/v1', require('./routes'))
-    http_server.listen(PORT);
+    http_server.listen({{ cookiecutter.app }}_config.PORT);
 }
 else
 {
     app.use(require('./routes'))
-    http_server.listen(PORT, () => { console.log(`listening on ${PORT}`) });
+    http_server.listen({{ cookiecutter.app }}_config.PORT, () => { console.log(`listening on ${{{ cookiecutter.app }}_config.PORT}`) });
 }
