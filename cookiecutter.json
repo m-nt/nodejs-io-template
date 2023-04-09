@@ -1,12 +1,12 @@
 {
     "author": "Mohamad nosratian",
     "email": "mohn.info@gmail.com",
-    "app_name": "app",
-    "project_name": "{{cookiecutter.app_name}}-service",
+    "app": "app",
+    "project_name": "{{cookiecutter.app}}-service",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "project_short_description": "a server to manager {{ cookiecutter.project_slug }}.",
     "version": "0.1.0",
-    "entry_points": "{{cookiecutter.app_name}}.js",
+    "entry_points": "{{cookiecutter.app}}.js",
     "open_source_license": [
         "MIT",
         "BSD",
