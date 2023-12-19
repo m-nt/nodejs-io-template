@@ -22,5 +22,43 @@ module.exports = {
                 }
             })
         })
-    }
+    },
+    FROM_ENV: /**
+     * @param {any} defualt
+     * @param {String} env
+     * @returns {String}
+     */ (defualt, env) => {
+        if (process.env[env] != null) return process.env[env];
+        else return defualt || undefined;
+    },
+    GET_TIME: (timestamp) => {
+        return new Intl.DateTimeFormat("en-US", timezone_options)
+            .format(timestamp)
+            .replace("، ", "T")
+            .replace(" ", "");
+    },
+    LOGGER: /**
+     * @param {any | undefined} from
+     * @param {any | undefined} to
+     * @param {any | undefined} message
+     * @param {number | 5} size
+     * @param {number} status
+     */ (from, to, message, status, size = 5) => {
+        let timestamp = require("./index").GET_TIME(new Date(Date.now()));
+        let data = JSON.stringify(message);
+        let formated_string = "";
+        if (data != null) {
+            if (data.length < size * size) formated_string = data;
+            else {
+                let first_index = data.slice(0, size);
+                let last_index = data.slice(data.length - size, data.length);
+                formated_string = `${first_index}${".".repeat(
+                    size
+                )}${last_index}`;
+            }
+        }
+        console.log(
+            `${timestamp} - "${from} ${to}" ${status} ${formated_string} `
+        );
+    },
 }
